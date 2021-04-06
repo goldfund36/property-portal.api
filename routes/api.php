@@ -13,3 +13,10 @@ Route::group([
     Route::post('register', 'Auth\RegisterController@register');
 
 });
+
+Route::group([
+    'middleware' => 'api'
+], function($router) {
+    Route::get('region/{query}', 'RegionController@getRegionByQuery');
+    Route::get('types', 'TypeController@getTypes');
+});
